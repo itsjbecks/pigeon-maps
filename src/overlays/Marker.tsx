@@ -20,7 +20,7 @@ interface MarkerProps extends PigeonProps {
   onMouseOut?: ({ event: HTMLMouseEvent, anchor: Point, payload: any }) => void
 }
 
-export function Marker(props: MarkerProps): JSX.Element {
+export const Marker: React.FC<MarkerProps> = (props) => {
   const width =
     typeof props.width !== 'undefined'
       ? props.width
@@ -79,6 +79,7 @@ export function Marker(props: MarkerProps): JSX.Element {
           <circle cx="30.5" cy="30.5" r="8.5" fill="white" opacity={hover ? 0.98 : 0.6} />
         </g>
       </svg>
+      {props?.children}
     </div>
   )
 }
